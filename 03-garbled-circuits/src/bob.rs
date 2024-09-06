@@ -42,4 +42,6 @@ async fn main() {
 
     // Send output information to Alice.
     garble_vm.decode_blind(&[ciphertext]).await.unwrap();
+
+    garble_vm.finalize().await.unwrap();
 }

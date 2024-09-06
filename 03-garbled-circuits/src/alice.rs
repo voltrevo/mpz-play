@@ -43,6 +43,8 @@ async fn main() {
     // Receive output information from Bob.
     let mut output = garble_vm.decode_private(&[ciphertext]).await.unwrap();
 
+    garble_vm.finalize().await.unwrap();
+
     // Print the encrypted text.
     let encrypted: [u8; 16] = output.pop().unwrap().try_into().unwrap();
     println!("Encrypted text is {:x?}", encrypted);
